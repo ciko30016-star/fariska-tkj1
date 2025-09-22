@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Fariska Riskiani</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Chart.js for creating the charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+            color: #1f2937;
+        }
+        .profile-card {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease-in-out;
+        }
+        .profile-card:hover {
+            transform: translateY(-5px);
+        }
+        /* Style for Arabic direction */
+        [lang="ar"] {
+            direction: rtl;
+        }
+    </style>
+</head>
+<body class="p-6 md:p-12">
+
+    <div class="max-w-4xl mx-auto bg-white rounded-2xl profile-card overflow-hidden">
+        
+        <!-- Language Switcher -->
+        <div class="flex justify-end p-4 bg-gray-100">
+            <button class="lang-btn mx-1 px-4 py-2 bg-blue-500 text-white font-semibold rounded-full hover:bg-blue-600 transition-colors" data-lang="id">ID</button>
+            <button class="lang-btn mx-1 px-4 py-2 bg-blue-500 text-white font-semibold rounded-full hover:bg-blue-600 transition-colors" data-lang="en">EN</button>
+            <button class="lang-btn mx-1 px-4 py-2 bg-blue-500 text-white font-semibold rounded-full hover:bg-blue-600 transition-colors" data-lang="ar">AR</button>
+            <button class="lang-btn mx-1 px-4 py-2 bg-blue-500 text-white font-semibold rounded-full hover:bg-blue-600 transition-colors" data-lang="jv">JW</button>
+        </div>
+
+        <div class="p-8 md:p-12 text-center">
+            <!-- Circular Profile Picture -->
+            <div class="w-32 h-32 mx-auto mb-4 overflow-hidden rounded-full border-4 border-blue-500">
+                <img src="cika.img" alt="Fariska's Profile Picture" class="w-full h-full object-cover">
+            </div>
+            
+            <h1 class="text-4xl md:text-5xl font-extrabold text-blue-600" data-content="name">Fariska Riskiani</h1>
+            <p class="mt-2 text-gray-500" data-content="bio">Saya seorang pelajar yang memiliki semangat tinggi untuk belajar dan berkembang di bidang teknologi dan desain.</p>
+        </div>
+
+        <div class="p-8 md:p-12 pt-0 grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Bagian Identitas -->
+            <div class="bg-gray-50 p-6 rounded-xl">
+                <h2 class="text-2xl font-bold mb-4 text-blue-600" data-content="identitas-title">Identitas</h2>
+                <ul class="space-y-3 text-gray-700">
+                    <li><strong class="text-gray-900" data-content="label-ttl">Tempat, Tanggal Lahir:</strong> <span data-content="value-ttl">Pekalongan, 31 Agustus 2009</span></li>
+                    <li><strong class="text-gray-900" data-content="label-alamat">Alamat:</strong> <span data-content="value-alamat">Samborejo Estate Blok C 22</span></li>
+                    <li><strong class="text-gray-900" data-content="label-jk">Jenis Kelamin:</strong> <span data-content="value-jk">Perempuan</span></li>
+                    <li><strong class="text-gray-900" data-content="label-agama">Agama:</strong> <span data-content="value-agama">Islam</span></li>
+                </ul>
+            </div>
+
+            <!-- Bagian Pendidikan -->
+            <div class="bg-gray-50 p-6 rounded-xl">
+                <h2 class="text-2xl font-bold mb-4 text-blue-600" data-content="pendidikan-title">Pendidikan</h2>
+                <ul class="space-y-3 text-gray-700">
+                    <li><strong class="text-gray-900" data-content="label-sekolah1">SMK Ma'arif NU Tirto, Jurusan TKJ</strong></li>
+                    <li><strong class="text-gray-900" data-content="label-sekolah2">SMPN 15 Pekalongan</strong></li>
+                    <li><strong class="text-gray-900" data-content="label-status">Status:</strong> <span data-content="value-status">Semester Gasal</span></li>
+                </ul>
+            </div>
+
+            <!-- Bagian Keterampilan -->
+            <div class="bg-gray-50 p-6 rounded-xl">
+                <h2 class="text-2xl font-bold mb-4 text-blue-600" data-content="keterampilan-title">Keterampilan</h2>
+                <ul class="list-disc list-inside space-y-2 text-gray-700">
+                    <li data-content="skill1">Bisa menginstalasi Debian dan membuat website.</li>
+                    <li data-content="skill2">Bisa desain grafis dengan Canva.</li>
+                    <li data-content="skill3">Memiliki kemampuan berkomunikasi dengan baik.</li>
+                </ul>
+            </div>
+
+            <!-- Bagian Pengalaman -->
+            <div class="bg-gray-50 p-6 rounded-xl">
+                <h2 class="text-2xl font-bold mb-4 text-blue-600" data-content="pengalaman-title">Pengalaman</h2>
+                <ul class="list-disc list-inside space-y-2 text-gray-700">
+                    <li data-content="pengalaman1">Juara 1 lomba lari.</li>
+                    <li data-content="pengalaman2">Panitia 17 Agustus di desa.</li>
+                </ul>
+            </div>
+
+            <!-- Bagian Hobi dan Aktivitas -->
+            <div class="bg-gray-50 p-6 rounded-xl md:col-span-2">
+                <h2 class="text-2xl font-bold mb-4 text-blue-600" data-content="hobi-title">Hobi</h2>
+                <ul class="list-disc list-inside space-y-2 text-gray-700">
+                    <li data-content="hobi1">Memasak.</li>
+                    <li data-content="hobi2">Bermain bola voli.</li>
+                    <li data-content="hobi3">Bernyanyi.</li>
+                </ul>
+                <h2 class="text-2xl font-bold mt-8 mb-4 text-blue-600" data-content="aktivitas-title">Aktivitas Rutin Sehari-hari</h2>
+                <ul class="list-disc list-inside space-y-2 text-gray-700">
+                    <li data-content="aktivitas1">Belajar.</li>
+                    <li data-content="aktivitas2">Membantu orang tua.</li>
+                    <li data-content="aktivitas3">Bersih-bersih.</li>
+                    <li data-content="aktivitas4">Berolahraga.</li>
+                </ul>
+
+                <!-- Charts -->
+                <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="flex flex-col items-center">
+                        <canvas id="hobiBarChart"></canvas>
+                        <p class="text-sm text-gray-500 mt-2" data-content="bar-chart-desc">Diagram Batang Hobi</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <canvas id="aktivitasPieChart"></canvas>
+                        <p class="text-sm text-gray-500 mt-2" data-content="pie-chart-desc">Diagram Lingkaran Aktivitas</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-xl md:col-span-2">
+                <h2 class="text-2xl font-bold mb-4 text-blue-600" data-content="kontak-title">Kontak</h2>
+                <ul class="space-y-3 text-gray-700">
+                    <li><strong class="text-gray-900" data-content="label-email">Email:</strong> <span data-content="value-email">ciko30016@gmal.com</span></li>
+                    <li><strong class="text-gray-900" data-content="label-telepon">Telepon:</strong> <span data-content="value-telepon">085848335400</span></li>
+                </ul>
+            </div>
+            
+        </div>
+    </div>
+
+    <script>
+        const content = {
+            'id': {
+                'name': 'Fariska Riskiani',
+                'bio': 'Saya seorang pelajar yang memiliki semangat tinggi untuk belajar dan berkembang di bidang teknologi dan desain.',
+                'identitas-title': 'Identitas',
+                'label-ttl': 'Tempat, Tanggal Lahir:',
+                'value-ttl': 'Pekalongan, 31 Agustus 2009',
+                'label-alamat': 'Alamat:',
+                'value-alamat': 'Samborejo Estate Blok C 22',
+                'label-jk': 'Jenis Kelamin:',
+                'value-jk': 'Perempuan',
+                'label-agama': 'Agama:',
+                'value-agama': 'Islam',
+                'pendidikan-title': 'Pendidikan',
+                'label-sekolah1': 'SMK Ma\'arif NU Tirto, Jurusan TKJ',
+                'label-sekolah2': 'SMPN 15 Pekalongan',
+                'label-status': 'Status:',
+                'value-status': 'Semester Gasal',
+                'keterampilan-title': 'Keterampilan',
+                'skill1': 'Bisa menginstalasi Debian dan membuat website.',
+                'skill2': 'Bisa desain grafis dengan Canva.',
+                'skill3': 'Memiliki kemampuan berkomunikasi dengan baik.',
+                'pengalaman-title': 'Pengalaman',
+                'pengalaman1': 'Juara 1 lomba lari.',
+                'pengalaman2': 'Panitia 17 Agustus di desa.',
+                'prestasi-title': 'Prestasi',
+                'prestasi1': '-',
+                'hobi-title': 'Hobi',
+                'hobi1': 'Memasak.',
+                'hobi2': 'Bermain bola voli.',
+                'hobi3': 'Bernyanyi.',
+                'aktivitas-title': 'Aktivitas Rutin Sehari-hari',
+                'aktivitas1': 'Belajar.',
+                'aktivitas2': 'Membantu orang tua.',
+                'aktivitas3': 'Bersih-bersih.',
+                'aktivitas4': 'Berolahraga.',
+                'kontak-title': 'Kontak',
+                'label-email': 'Email:',
+                'value-email': 'ciko30016@gmal.com',
+                'label-telepon': 'Telepon:',
+                'value-telepon': '085848335400',
+                // Chart data for ID
+                'hobi-chart-labels': ['Memasak', 'Bola Voli', 'Bernyanyi'],
+                'aktivitas-chart-labels': ['Belajar', 'Membantu Orang Tua', 'Bersih-bersih', 'Berolahraga'],
+                'bar-chart-title': 'Hobi Saya',
+                'pie-chart-title': 'Aktivitas Rutin Harian',
+                'bar-chart-desc': 'Diagram Batang Hobi',
+                'pie-chart-desc': 'Diagram Lingkaran Aktivitas'
+            },
+            'en': {
+                'name': 'Fariska Riskiani',
+                'bio': 'I am a student with a strong passion to learn and grow in the fields of technology and design.',
+                'identitas-title': 'Identity',
+                'label-ttl': 'Place, Date of Birth:',
+                'value-ttl': 'Pekalongan, August 31, 2009',
+                'label-alamat': 'Address:',
+                'value-alamat': 'Samborejo Estate Block C 22',
+                'label-jk': 'Gender:',
+                'value-jk': 'Female',
+                'label-agama': 'Religion:',
+                'value-agama': 'Islam',
+                'pendidikan-title': 'Education',
+                'label-sekolah1': 'Ma\'arif NU Tirto Vocational High School, TKJ Major',
+                'label-sekolah2': 'Pekalongan 15 Junior High School',
+                'label-status': 'Status:',
+                'value-status': 'Odd Semester',
+                'keterampilan-title': 'Skills',
+                'skill1': 'Can install Debian and create websites.',
+                'skill2': 'Proficient in graphic design with Canva.',
+                'skill3': 'Possess good communication skills.',
+                'pengalaman-title': 'Experience',
+                'pengalaman1': '1st place in a running competition.',
+                'pengalaman2': 'Committee member for the 17th of August event in my village.',
+                'prestasi-title': 'Achievements',
+                'prestasi1': '-',
+                'hobi-title': 'Hobbies',
+                'hobi1': 'Cooking.',
+                'hobi2': 'Playing volleyball.',
+                'hobi3': 'Singing.',
+                'aktivitas-title': 'Daily Routines',
+                'aktivitas1': 'Studying.',
+                'aktivitas2': 'Helping parents.',
+                'aktivitas3': 'Cleaning.',
+                'aktivitas4': 'Exercising.',
+                'kontak-title': 'Contact',
+                'label-email': 'Email:',
+                'value-email': 'ciko30016@gmal.com',
+                'label-telepon': 'Phone:',
+                'value-telepon': '085848335400',
+                // Chart data for EN
+                'hobi-chart-labels': ['Cooking', 'Volleyball', 'Singing'],
+                'aktivitas-chart-labels': ['Studying', 'Helping Parents', 'Cleaning', 'Exercising'],
+                'bar-chart-title': 'My Hobbies',
+                'pie-chart-title': 'My Daily Routines',
+                'bar-chart-desc': 'Hobbies Bar Chart',
+                'pie-chart-desc': 'Routines Pie Chart'
+            },
+            'ar': {
+                'name': 'فاريسكا ريسكياني',
+                'bio': 'أنا طالبة لدي شغف كبير للتعلم والنمو في مجالات التكنولوجيا والتصميم.',
+                'identitas-title': 'الهوية',
+                'label-ttl': 'مكان وتاريخ الميلاد:',
+                'value-ttl': 'بيكالونجان، 31 أغسطس 2009',
+                'label-alamat': 'العنوان:',
+                'value-alamat': 'سامبوريجو استيت بلوك سي 22',
+                'label-jk': 'الجنس:',
+                'value-jk': 'أنثى',
+                'label-agama': 'الديانة:',
+                'value-agama': 'الإسلام',
+                'pendidikan-title': 'التعليم',
+                'label-sekolah1': 'ثانوية معارف نو تيرتو المهنية، تخصص هندسة الحاسوب والشبكات',
+                'label-sekolah2': 'ثانوية بيكالونجان 15',
+                'label-status': 'الحالة:',
+                'value-status': 'الفصل الدراسي الأول',
+                'keterampilan-title': 'المهارات',
+                'skill1': 'أستطيع تثبيت دبيان وإنشاء مواقع الويب.',
+                'skill2': 'أستطيع التصميم الجرافيكي باستخدام كانفا.',
+                'skill3': 'أمتلك مهارات تواصل جيدة.',
+                'pengalaman-title': 'الخبرة',
+                'pengalaman1': 'المركز الأول في سباق الجري.',
+                'pengalaman2': 'عضو لجنة تنظيم فعالية 17 أغسطس في قريتي.',
+                'prestasi-title': 'الإنجازات',
+                'prestasi1': '-',
+                'hobi-title': 'الهوايات',
+                'hobi1': 'الطبخ.',
+                'hobi2': 'لعب الكرة الطائرة.',
+                'hobi3': 'الغناء.',
+                'aktivitas-title': 'الأنشطة اليومية',
+                'aktivitas1': 'الدراسة.',
+                'aktivitas2': 'مساعدة الوالدين.',
+                'aktivitas3': 'التنظيف.',
+                'aktivitas4': 'ممارسة الرياضة.',
+                'kontak-title': 'الاتصال',
+                'label-email': 'البريد الإلكتروني:',
+                'value-email': 'ciko30016@gmal.com',
+                'label-telepon': 'الهاتف:',
+                'value-telepon': '085848335400',
+                // Chart data for AR
+                'hobi-chart-labels': ['الطبخ', 'الكرة الطائرة', 'الغناء'],
+                'aktivitas-chart-labels': ['الدراسة', 'مساعدة الوالدين', 'التنظيف', 'الرياضة'],
+                'bar-chart-title': 'هواياتي',
+                'pie-chart-title': 'أنشطتي اليومية',
+                'bar-chart-desc': 'مخطط شريطي للهوايات',
+                'pie-chart-desc': 'مخطط دائري للأنشطة'
+            },
+            'jv': {
+                'name': 'Fariska Riskiani',
+                'bio': 'Kula niku siswa ingkang gadhah semangat inggil kagem sinau lan ngrembaka ing babagan teknologi lan desain.',
+                'identitas-title': 'Jati Diri',
+                'label-ttl': 'Papan, Tanggal Lair:',
+                'value-ttl': 'Pekalongan, 31 Agustus 2009',
+                'label-alamat': 'Alamat:',
+                'value-alamat': 'Samborejo Estate Blok C 22',
+                'label-jk': 'Jinis Kelamin:',
+                'value-jk': 'Wadon',
+                'label-agama': 'Agama:',
+                'value-agama': 'Islam',
+                'pendidikan-title': 'Pawiyatan',
+                'label-sekolah1': 'SMK Ma\'arif NU Tirto, Jurusan TKJ',
+                'label-sekolah2': 'SMPN 15 Pekalongan',
+                'label-status': 'Status:',
+                'value-status': 'Semester Gasal',
+                'keterampilan-title': 'Kawasisan',
+                'skill1': 'Bisa instalasi Debian lan nggawe website.',
+                'skill2': 'Bisa desain grafis nganggo Canva.',
+                'skill3': 'Gadhah kawasisan komunikasi ingkang sae.',
+                'pengalaman-title': 'Pengalaman',
+                'pengalaman1': 'Juwara 1 lomba mlayu.',
+                'pengalaman2': 'Dadi panitia 17 Agustus ing desa.',
+                'prestasi-title': 'Prestasi',
+                'prestasi1': '-',
+                'hobi-title': 'Hobi',
+                'hobi1': 'Masak.',
+                'hobi2': 'Dolan bal voli.',
+                'hobi3': 'Nembang.',
+                'aktivitas-title': 'Kegiatan Saben Dinten',
+                'aktivitas1': 'Sinau.',
+                'aktivitas2': 'Ngrewangi tiyang sepuh.',
+                'aktivitas3': 'Resik-resik.',
+                'aktivitas4': 'Olahraga.',
+                'kontak-title': 'Kontak',
+                'label-email': 'Email:',
+                'value-email': 'ciko30016@gmal.com',
+                'label-telepon': 'Telepon:',
+                'value-telepon': '085848335400',
+                // Chart data for JV
+                'hobi-chart-labels': ['Masak', 'Bola Voli', 'Nembang'],
+                'aktivitas-chart-labels': ['Sinau', 'Ngrewangi Tiang Sepuh', 'Resik-resik', 'Olahraga'],
+                'bar-chart-title': 'Hobi Kula',
+                'pie-chart-title': 'Kegiatan Saben Dinten',
+                'bar-chart-desc': 'Diagram Batang Hobi',
+                'pie-chart-desc': 'Diagram Lingkaran Kegiatan'
+            }
+        };
+
+        let hobiBarChart;
+        let aktivitasPieChart;
+
+        function setLanguage(lang) {
+            const data = content[lang];
+            
+            // Set body language and direction
+            document.body.setAttribute('lang', lang);
+            
+            // Loop through all data attributes and update content
+            for (const key in data) {
+                const element = document.querySelector(`[data-content="${key}"]`);
+                if (element) {
+                    element.textContent = data[key];
+                }
+            }
+
+            // Update charts after language change
+            updateCharts(lang);
+        }
+
+        function updateCharts(lang) {
+            const data = content[lang];
+            
+            // Hobi Chart Data
+            const hobiChartData = {
+                labels: data['hobi-chart-labels'],
+                datasets: [{
+                    label: data['bar-chart-title'],
+                    data: [50, 20, 30],
+                    backgroundColor: [
+                        'rgba(59, 130, 246, 0.7)',
+                        'rgba(239, 68, 68, 0.7)',
+                        'rgba(34, 197, 94, 0.7)'
+                    ],
+                    borderColor: [
+                        'rgba(59, 130, 246, 1)',
+                        'rgba(239, 68, 68, 1)',
+                        'rgba(34, 197, 94, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            };
+
+            // Aktivitas Chart Data
+            const aktivitasChartData = {
+                labels: data['aktivitas-chart-labels'],
+                datasets: [{
+                    label: data['pie-chart-title'],
+                    data: [50, 30, 10, 10], // Data aktivitas harian
+                    backgroundColor: [
+                        'rgba(59, 130, 246, 0.7)',
+                        'rgba(239, 68, 68, 0.7)',
+                        'rgba(34, 197, 94, 0.7)',
+                        'rgba(251, 191, 36, 0.7)'
+                    ],
+                    borderColor: '#fff',
+                    borderWidth: 2
+                }]
+            };
+
+            const hobiBarCtx = document.getElementById('hobiBarChart').getContext('2d');
+            const aktivitasPieCtx = document.getElementById('aktivitasPieChart').getContext('2d');
+
+            // Destroy old charts to avoid duplicates
+            if (hobiBarChart) {
+                hobiBarChart.destroy();
+            }
+            if (aktivitasPieChart) {
+                aktivitasPieChart.destroy();
+            }
+
+            // Create new Bar Chart for Hobi
+            hobiBarChart = new Chart(hobiBarCtx, {
+                type: 'bar',
+                data: hobiChartData,
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: { display: false },
+                        title: {
+                            display: true,
+                            text: data['bar-chart-title']
+                        }
+                    },
+                    scales: {
+                        y: { beginAtZero: true }
+                    }
+                }
+            });
+
+            // Create new Pie Chart for Aktivitas
+            aktivitasPieChart = new Chart(aktivitasPieCtx, {
+                type: 'pie',
+                data: aktivitasChartData,
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: { position: 'top' },
+                        title: {
+                            display: true,
+                            text: data['pie-chart-title']
+                        }
+                    }
+                }
+            });
+        }
+
+        // Add event listeners to language buttons
+        document.querySelectorAll('.lang-btn').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const lang = e.target.getAttribute('data-lang');
+                setLanguage(lang);
+            });
+        });
+
+        // Set default language on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            setLanguage('id');
+        });
+    </script>
+</body>
+</html>
